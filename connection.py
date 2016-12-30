@@ -4,7 +4,7 @@ import MySQLdb
 
 class Connect(object):
 	def __init__(self):
-		self.db = MySQLdb.Connect("localhost","euromillon_user","Inicio15","EUROMILLON_DB_PRE")
+		self.db = MySQLdb.Connect("localhost","euromillon_user","Inicio15","EUROMILLON_DB")
 
 	def cursor(self):
 		self.cursor = self.db.cursor()
