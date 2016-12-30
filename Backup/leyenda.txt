@@ -1,3 +1,6 @@
+Convertir ui a py:
+pyuic4 -xo nombre.py nombre.ui
+
 Slots:
 EraseMain()
 InsertMain()
