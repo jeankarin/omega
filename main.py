@@ -36,7 +36,8 @@ class MainWindow(QtGui.QMainWindow):
 		num.append(int(self.ui.Diabox.currentText()))
 		num.append('\'' + str(self.ui.Mesbox.currentText() + '\''))
 		num.append(int(self.ui.Anobox.currentText()))
-		num.append('\'' + str(self.ui.Millon.text() + '\''))
+		#num.append('\'' + str(self.ui.Millon.text() + '\''))
+		num.append(self.ui.Millon.text())
 		Insert_to_database(num)
 
 if __name__ == "__main__":
