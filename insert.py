@@ -12,5 +12,5 @@ def Insert_to_database(num):
 	consulta = consultas.InsertNum(num)
 
 	con.executerins(consulta)
-
+	
 	con.close
