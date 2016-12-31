@@ -1,3 +1,3 @@
 Nom: Omega
-Versión: 0.01
-Fecha: 30/12/2016
+Versión: 1.0
+Fecha: 31/12/2016
