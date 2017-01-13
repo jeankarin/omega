@@ -1,0 +1,1 @@
+Crear campo de texto debajo mostrando los 10 ultimos resultados, el más nuevo el primero.
