@@ -2,17 +2,18 @@
 
 # Form implementation generated from reading ui file 'windows_gui.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created: Thu Dec 29 20:06:46 2016
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
 
 try:
-    _fromUtf8 = QtCore.QString.fromUtf8
+	_fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    def _fromUtf8(s):
-        return s
+	def _fromUtf8(s):
+		return s
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
@@ -25,10 +26,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.setEnabled(True)
-        MainWindow.resize(545, 401)
-        MainWindow.setMinimumSize(QtCore.QSize(545, 401))
-        MainWindow.setMaximumSize(QtCore.QSize(545, 401))
+        MainWindow.resize(545, 173)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.Num01 = QtGui.QLineEdit(self.centralwidget)
@@ -152,10 +150,6 @@ class Ui_MainWindow(object):
         self.Semanabox.setObjectName(_fromUtf8("Semanabox"))
         self.Semanabox.addItem(_fromUtf8(""))
         self.Semanabox.addItem(_fromUtf8(""))
-        self.plainTextEdit = QtGui.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(10, 150, 531, 221))
-        self.plainTextEdit.setReadOnly(True)
-        self.plainTextEdit.setObjectName(_fromUtf8("plainTextEdit"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
