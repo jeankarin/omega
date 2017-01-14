@@ -1,0 +1,2 @@
+Convertir ui a py.
+pyuic4 -xo nombre_que_le_daremos.py nombre_fichero.ui
