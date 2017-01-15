@@ -5,12 +5,22 @@ import sys, os, time
 from PyQt4.QtGui import *
 from window import *
 from insert import Insert_to_database
+from querys import ConsultaUltimos
 
 class MainWindow(QtGui.QMainWindow):
 	def __init__(self,parent=None):
 		super(MainWindow, self).__init__(parent)
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
+		#Recibimos consulta
+		numes = []
+		numes = ConsultaUltimos()
+		nume = []
+		for i in numes:
+			nume.append(i)
+		
+		for i in range(len(nume)):
+			self.ui.plainTextEdit.appendPlainText(str(nume[i]))
 
 	def EraseMain(self):
 		self.ui.Num01.setText("")
