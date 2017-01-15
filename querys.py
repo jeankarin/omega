@@ -11,6 +11,8 @@ def ConsultaUltimos():
 
 	consulta = consultas.ConsultaFinal()
 
-	con.executerins(consulta)
+	resultado = con.executer(consulta)
 	
 	con.close
+	
+	return resultado
