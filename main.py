@@ -20,7 +20,7 @@ class MainWindow(QtGui.QMainWindow):
 			nume.append(i)
 		
 		for i in range(len(nume)):
-			self.ui.plainTextEdit.appendPlainText(str(nume[i]))
+			self.ui.plainTextEdit.appendPlainText(str(nume[i]).strip())
 
 	def EraseMain(self):
 		self.ui.Num01.setText("")
