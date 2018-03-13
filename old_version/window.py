@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "Euromillon 2017", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Euromillon 2018", None))
         self.TitleNum.setText(_translate("MainWindow", "Numeros:", None))
         self.TitleStar.setText(_translate("MainWindow", "Estrellas:", None))
         self.Millon.setText(_translate("MainWindow", "NULL", None))
@@ -221,9 +221,9 @@ class Ui_MainWindow(object):
         self.Mesbox.setItemText(9, _translate("MainWindow", "Octubre", None))
         self.Mesbox.setItemText(10, _translate("MainWindow", "Noviembre", None))
         self.Mesbox.setItemText(11, _translate("MainWindow", "Diciembre", None))
-        self.Anobox.setItemText(0, _translate("MainWindow", "2017", None))
-        self.Anobox.setItemText(1, _translate("MainWindow", "2018", None))
-        self.Anobox.setItemText(2, _translate("MainWindow", "2019", None))
+        self.Anobox.setItemText(0, _translate("MainWindow", "2018", None))
+        self.Anobox.setItemText(1, _translate("MainWindow", "2019", None))
+        self.Anobox.setItemText(2, _translate("MainWindow", "2020", None))
         self.TitleDia.setText(_translate("MainWindow", "Dia:", None))
         self.TitleMes.setText(_translate("MainWindow", "Mes:", None))
         self.TitleAno.setText(_translate("MainWindow", "Año:", None))
