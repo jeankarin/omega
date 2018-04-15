@@ -3,6 +3,7 @@
 MySQL connection
 """
 import MySQLdb
+import queries
 
 class Connect(object):
 	def __init__(self):
@@ -21,13 +22,13 @@ class Connect(object):
 		self.cur.execute(sql_statement)
 		return self.cur.fetchall()
 
-def Consulta_db(query):
+def Consulta_db():
 	con = Connect()
 	con.cursor()
 
-	#consulta = queries.ConsultaFinal()
+	consulta = queries.ConsultaFinal()
 
-	resultado = con.executer(query)
+	resultado = con.executer(consulta)
 
 	con.close
 

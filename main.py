@@ -1,34 +1,42 @@
 #-*-coding:latin-1-*-
 """
 Author: JeanKarin
-12/03/2018 12:10
+14/04/2018 21:02
 Euromillon v0.0.1
 """
-from connection import *
-from queries import *
 
-def Consulta():
+def consulta():
+	os.system('clear')
+	#Agafem la consulta que volem fer servir.
+	consulta = queries.ConsultaFinal()
+	return consulta
+
+
+def MySQL1(sqlsent):
+	#Crearem el cursor i li pasem la consulta.
 	datos = []
-	datos = Consulta_db()
+	datos = connection.Consulta_db(sqlsent)
 
-	numes = []
-	for i in datos:
-		numes.append(i)
-
-	print("{0:^2}{1:^2}{2:^2}{3:^2}{4:^2}{5:^2}{6:^2}{7:^2}{8:^16}{9:^14}{10:^6}"
-		.format('------','------','------','------','------','------','------','------','-----------------','--------------|','-------'))
-	print("{0:^2}{1:^2}{2:^2}{3:^2}{4:^2}{5:^2}{6:^2}{7:^2}{8:^16}{9:^14}{10:^6}"
-		.format('  ID |','  N1 |','  N2 |','  N3 |','  N4 |','  N5 |','  S1 |','  S2 |','   DIA SEMANA   |','     MES      |',' ANYO |'))
-	print("{0:^2}{1:^2}{2:^2}{3:^2}{4:^2}{5:^2}{6:^2}{7:^2}{8:^16}{9:^14}{10:^6}"
-		.format('------','------','------','------','------','------','------','------','-----------------','--------------|','-------'))
-
-	for i in range(len(numes)):
-		print(" {0:^3} | {1:^3} | {2:^3} | {3:^3} | {4:^3} | {5:^3} | {6:^3} | {7:^3} | {8:^8}   {9:^3} | {10:^12} | {11:^3} |"
-			.format(numes[i][0],numes[i][1],numes[i][2],numes[i][3],numes[i][4],numes[i][5],numes[i][6],numes[i][7],numes[i][8],numes[i][9],numes[i][10],numes[i][11]))
+	#Mostrem el resultat per pantalla
+	print (datos)
 
 def main():
-	Consulta()
+	os.system('clear')
+	while True:
+		print ("1. Consulta")
+		print ("2. Insert")
+		print ("3. Salir")
+		option = input ("Opcio: ")
+		if option > 2:
+			break
+		elif option == 1:
+			sql = consulta()
+			MySQL1(sql)
+		else:
+			os.system('clear')
+			print ("Gracies per escullir-me")
 
 
 if __name__ == '__main__':
+	import queries, connection, os
 	main()
