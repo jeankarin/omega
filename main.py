@@ -5,11 +5,14 @@ Author: JeanKarin
 Euromillon v0.0.1
 """
 
-def consulta():
-	os.system('clear')
+def consulta(opcion,num):
 	#Agafem la consulta que volem fer servir.
-	consulta = queries.ConsultaFinal()
-	return consulta
+	if opcion <= 1:
+		consulta = queries.ConsultaFinal()
+		return consulta
+	else:
+		consulta = queries.InsertOne(num)
+		return consulta
 
 
 def MySQL1(sqlsent):
@@ -18,10 +21,11 @@ def MySQL1(sqlsent):
 	datos = connection.Consulta_db(sqlsent)
 
 	#Mostrem el resultat per pantalla
-	print (datos)
+	visualcons.VisualCons(datos)
 
 def main():
 	os.system('clear')
+	num = []
 	while True:
 		print ("1. Consulta")
 		print ("2. Insert")
@@ -30,13 +34,13 @@ def main():
 		if option > 2:
 			break
 		elif option == 1:
-			sql = consulta()
+			sql = consulta(1,num)
 			MySQL1(sql)
 		else:
-			os.system('clear')
-			print ("Gracies per escullir-me")
+			sql = consulta(2,num)
+			print (sql)
 
 
 if __name__ == '__main__':
-	import queries, connection, os
+	import queries, connection, os, visualcons, numbers
 	main()
