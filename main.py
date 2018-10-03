@@ -15,7 +15,8 @@ def main():
 	euro = LecturaFichero()
 	consulta = SqlStatement(euro)
 
-	InsertData(consulta)
+	if (consulta != 0):
+		InsertData(consulta)
 
 if __name__ == '__main__':
 	import csv
