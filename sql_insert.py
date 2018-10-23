@@ -14,3 +14,10 @@ def SqlStatement(euro):
 		print ("Los datos del fichero numeros.csv no son correctos")
 		print ("Detectados: " + str(sum) + "/" + str(len(euro)))
 		return 0
+
+def SqlStatement2(euro):
+	sql = []
+
+	for i in range(len(euro)):
+		sql.append("""INSERT INTO MILLONES VALUES (%s,%s,%s)""" % ('NULL',euro[i][0],euro[i][1]))
+	return sql
