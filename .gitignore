@@ -1,2 +1,4 @@
 *.pyc
 *.txt
+mysql_con.py
+mysql_con.pyc
