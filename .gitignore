@@ -1,4 +1,4 @@
 *.pyc
 *.txt
-mysql_con.py
+settings.json
 mysql_con.pyc
