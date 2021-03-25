@@ -3,6 +3,8 @@ ImportError: No module named MySQLdb
 
 Solución
 sudo pip install mysql-python
+ó
+sudo apt install python-mysqldb
 
 Error instalando mysql-python:
 /usr/bin/ld: no se puede encontrar -lssl
