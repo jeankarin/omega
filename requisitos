@@ -1,0 +1,15 @@
+Error al ejecutar la aplicación:
+ImportError: No module named MySQLdb
+
+Solución
+sudo pip install mysql-python
+
+Error instalando mysql-python:
+/usr/bin/ld: no se puede encontrar -lssl
+/usr/bin/ld: no se puede encontrar -lcrypto
+
+Instalar:
+apt install libssl-dev
+
+IMPORTANTE!!!
+También tenemos que tener instalado mysql-client o mariadb-client
