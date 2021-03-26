@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 # Lectura fichero csv
 def LecturaFichero(Lectura):
 	numeros = []
@@ -12,22 +10,25 @@ def LecturaFichero(Lectura):
 
 # Funcion principal
 def main():
-	option = True
+	try:
+		option = True
 
-	while option:
-		print ("1. Numeros\n2. Millones\n3. Salir")
-		option = input("Seleccione una opcion:")
-		if (option == 1):
-			euro = LecturaFichero('numeros.txt')
-			consulta = SqlStatement(euro)
-			if (consulta != 0):
-				InsertData(consulta)
-		elif (option == 2):
-			euro = LecturaFichero('millones.txt')
-			consmill = SqlStatement2(euro)
-			InsertData(consmill)
-		elif (option == 3):
-			option = False
+		while option:
+			print ("1. Numeros\n2. Millones\n3. Salir")
+			option = input("Seleccione una opcion:")
+			if (option == "1"):
+				euro = LecturaFichero('numeros.txt')
+				consulta = SqlStatement(euro)
+				if (consulta != 0):
+					InsertData(consulta)
+			elif (option == "2"):
+				euro = LecturaFichero('millones.txt')
+				consmill = SqlStatement2(euro)
+				InsertData(consmill)
+			elif (option == "3"):
+				option = False
+	except KeyboardInterrupt:
+		print ("\nCancelado por el usuario")
 
 if __name__ == '__main__':
 	import csv
