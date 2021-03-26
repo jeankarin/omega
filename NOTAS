@@ -1,0 +1,12 @@
+print ("1. Numeros\n2. Millones\n3. Salir")
+			option = input("Seleccione una opcion:")
+			if (option == 1):
+
+No funcionaba porque el número introducido lo detecta como texto, para cambiar eso podemos hacer 2 cosas:
+
+Opción 1:
+if (option == "1"): --> Hacemos la comparación como texto.
+
+Opción 2:
+option = int(input("Seleccione una opcion:"))
+Y ya podemos dejar "if (option == 1):" como siempre
