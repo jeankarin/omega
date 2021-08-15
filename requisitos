@@ -12,6 +12,7 @@ py3-mysqlclient
 Para instalar tqdm lo hacemos desde pip:
 Para alpine linux --> py3-pip
 Para ubuntu --> python3-pip
+python -m pip install mysql-connector-python
 
 Error instalando mysql-python:
 /usr/bin/ld: no se puede encontrar -lssl
