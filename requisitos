@@ -6,6 +6,13 @@ sudo pip install mysql-python
 ó
 sudo apt install python-mysqldb
 
+Si estás usando alpine linux:
+py3-mysqlclient
+
+Para instalar tqdm lo hacemos desde pip:
+Para alpine linux --> py3-pip
+Para ubuntu --> python3-pip
+
 Error instalando mysql-python:
 /usr/bin/ld: no se puede encontrar -lssl
 /usr/bin/ld: no se puede encontrar -lcrypto
