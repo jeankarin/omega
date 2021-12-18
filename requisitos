@@ -5,6 +5,8 @@ Solución
 sudo pip install mysql-python
 ó
 sudo apt install python-mysqldb
+�
+sudo pip install mysqlclient
 
 Si estás usando alpine linux:
 py3-mysqlclient
