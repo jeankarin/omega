@@ -1,0 +1,9 @@
+version: "3.1"
+services:
+    euromillon:
+        image: euromillon:v1
+        container_name: euromillon
+        network_mode: bridge
+        restart: unless-stopped
+        volumes:
+          - "/mnt/HDD/Appdata/euromillon/files:/opt/files/"
