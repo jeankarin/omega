@@ -1,14 +1,13 @@
-Error al ejecutar la aplicación:
+Error al ejecutar la aplicaciÃ³n:
 ImportError: No module named MySQLdb
 
-Solución
+Solucion:
 sudo pip install mysql-python
-ó
 sudo apt install python-mysqldb
-�
 sudo pip install mysqlclient
+sudo pip install PyMySQL
 
-Si estás usando alpine linux:
+Si estas usando alpine linux:
 py3-mysqlclient
 
 Para instalar tqdm lo hacemos desde pip:
@@ -24,4 +23,4 @@ Instalar:
 apt install libssl-dev
 
 IMPORTANTE!!!
-También tenemos que tener instalado mysql-client o mariadb-client
+Tambien tenemos que tener instalado mysql-client o mariadb-client
