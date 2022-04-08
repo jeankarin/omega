@@ -15,23 +15,30 @@ def main():
 				milsql = SqlMillones (millones)
 
 				## -- Escribir base de datos -- ##
-				if (numsql != 0):
-					InsertData(numsql)
-					InsertData(milsql)
+				# Variable resultado:
+				resultado = 0
+				resultado = confMillones(millones)
+				if (resultado == 0):
+					if (numsql != 0):
+						InsertData(numsql)
+						InsertData(milsql)
+					else:
+						print("numeros.txt esta mal")
+				else:
+					print("millones.txt esta mal")
 
 				## -- Borramos ficheros -- ##
 				os.system("rm /opt/files/numeros.txt")
 				os.system("rm /opt/files/millones.txt")
 
 			time.sleep(5)
-			print("Esperando ficheros")
 	except KeyboardInterrupt:
 		print("Cancelado por el usuario")
 
 if __name__ == '__main__':
 	import time
 	import os
-	from lectura import LecturaFichero
+	from lectura import *
 	from sql_insert import *
 	from mysql_con import *
 	main()
