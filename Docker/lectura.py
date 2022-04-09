@@ -12,7 +12,9 @@ def LecturaFichero(Lectura):
 
 def confMillones(fichero):
     a = 0
-    for i in fichero:
-        if (i.isdigit() == True):
+    b = 0
+    for i in range(len(fichero)):
+        b = fichero[0][0]
+        if (fichero[i][0].isdigit()):
             a = a + 1
     return a

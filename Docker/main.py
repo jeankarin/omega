@@ -22,14 +22,20 @@ def main():
 					if (numsql != 0):
 						InsertData(numsql)
 						InsertData(milsql)
+
+						## -- Borramos ficheros -- ##
+						os.system("rm /opt/files/numeros.txt")
+						os.system("rm /opt/files/millones.txt")
 					else:
 						print("numeros.txt esta mal")
+						## -- Borramos ficheros -- ##
+						os.system("mv /opt/files/numeros.txt /opt/files/numeros_.txt")
+						os.system("mv /opt/files/millones.txt /opt/files/millones_.txt")
 				else:
 					print("millones.txt esta mal")
-
-				## -- Borramos ficheros -- ##
-				os.system("rm /opt/files/numeros.txt")
-				os.system("rm /opt/files/millones.txt")
+					## -- Borramos ficheros -- ##
+					os.system("mv /opt/files/numeros.txt /opt/files/numeros_.txt")
+					os.system("mv /opt/files/millones.txt /opt/files/millones_.txt")
 
 			time.sleep(5)
 	except KeyboardInterrupt:
