@@ -3,7 +3,7 @@ def main():
 
 	# Create and configure logger
 	LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-	logging.basicConfig(filename = "/var/log/python/message.log",
+	logging.basicConfig(filename = "/var/log/euromillon/message.log",
 		level = logging.DEBUG,
 		format = LOG_FORMAT)
 
