@@ -1,5 +1,15 @@
 ## -- Funcion principal -- ##
 def main():
+
+	# Create and configure logger
+	LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
+	logging.basicConfig(filename = "/var/log/python/message.log",
+		level = logging.DEBUG,
+		format = LOG_FORMAT)
+
+	logger = logging.getLogger()
+
+	# Start the bucle
 	try:
 		TIME=True
 		while TIME == True:
@@ -22,17 +32,20 @@ def main():
 					if (numsql != 0):
 						InsertData(numsql)
 						InsertData(milsql)
+						logger.info("Base de datos actualizada correctamente")
 
 						## -- Borramos ficheros -- ##
 						os.system("rm /opt/files/numeros.txt")
 						os.system("rm /opt/files/millones.txt")
+						if (os.path.isfile("/opt/files/numeros.txt") and os.path.isfile("/opt/files/numeros_.txt")):
+							logger.info("Ficheros borrados")
 					else:
-						print("numeros.txt esta mal")
+						logger.error("numeros.txt esta mal")
 						## -- Borramos ficheros -- ##
 						os.system("mv /opt/files/numeros.txt /opt/files/numeros_.txt")
 						os.system("mv /opt/files/millones.txt /opt/files/millones_.txt")
 				else:
-					print("millones.txt esta mal")
+					logger.error("millones.txt esta mal")
 					## -- Borramos ficheros -- ##
 					os.system("mv /opt/files/numeros.txt /opt/files/numeros_.txt")
 					os.system("mv /opt/files/millones.txt /opt/files/millones_.txt")
