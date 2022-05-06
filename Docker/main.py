@@ -60,4 +60,5 @@ if __name__ == '__main__':
 	from lectura import *
 	from sql_insert import *
 	from mysql_con import *
+	import logging
 	main()
