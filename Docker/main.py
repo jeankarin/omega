@@ -38,6 +38,8 @@ def main():
 						os.system("rm /opt/files/numeros.txt")
 						os.system("rm /opt/files/millones.txt")
 						if (os.path.isfile("/opt/files/numeros.txt") and os.path.isfile("/opt/files/numeros_.txt")):
+							logger.warning("Ficheros no borrados")
+						else:
 							logger.info("Ficheros borrados")
 					else:
 						logger.error("numeros.txt esta mal")
