@@ -2,3 +2,4 @@
 *.txt
 settings.json
 mysql_con.pyc
+.idea/*

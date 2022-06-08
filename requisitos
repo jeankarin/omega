@@ -6,6 +6,7 @@ sudo pip install mysql-python
 sudo apt install python-mysqldb
 sudo pip install mysqlclient
 sudo pip install PyMySQL
+sudo apt install python3-mysqldb
 
 Si estas usando alpine linux:
 py3-mysqlclient
