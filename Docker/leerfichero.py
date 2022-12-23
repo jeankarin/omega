@@ -4,9 +4,9 @@ import csv
 
 def LecturaFichero(Lectura):
     numeros = []
-    fichero = open(Lectura, 'r')
-    lineas = csv.reader(fichero)
-    for line in lineas:
-        numeros.append(line)
-
+    with open(Lectura,newline='') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        for row in spamreader:
+            numeros.append(row)
+    
     return numeros
