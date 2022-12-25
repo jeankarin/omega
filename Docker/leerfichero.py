@@ -5,8 +5,8 @@ import csv
 def LecturaFichero(Lectura):
     numeros = []
     with open(Lectura,newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        for row in spamreader:
+        csvreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        for row in csvreader:
             numeros.append(row)
     
     return numeros
