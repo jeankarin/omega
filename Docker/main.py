@@ -1,9 +1,9 @@
 def main():
     ###Creamos el fichero de log
-    comprobar.createLog()
-    
+    comprobar.checkErrorsLogs()
+
     ###Leemos el fichero
-    fichero = leerfichero.LecturaFichero('/opt/files/numeros.txt')
+    numeros = leerfichero.LecturaFichero('/opt/files/numeros.txt')
 
 if __name__ == '__main__':
     import leerfichero
