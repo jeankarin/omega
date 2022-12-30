@@ -17,7 +17,16 @@ def checkErrorFile(numeros):
         format = LOG_FORMAT)
     logger = logging.getLogger()
 
-    for i in len(numeros):
-        if (numeros[i][8] != "Martes") or (numeros[i][8] != "Viernes"):
-            logger.error("Error en numeros.txt Día indicado incorrecto debe ser Martes o Viernes")
+    meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+    dias = ["Martes","Viernes"]
+    error = 0
 
+    for i in range(len(numeros)):
+        if (numeros[i][7] not in dias):
+            logger.error("Error en numeros.txt Día mal indicado.")
+            error += 1
+        if (numeros[i][9] not in meses):
+            logger.error("Error en numeros.txt Mes mal indicado.")
+            error += 1
+    
+    return error
