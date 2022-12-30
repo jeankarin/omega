@@ -17,5 +17,7 @@ def checkErrorFile(numeros):
         format = LOG_FORMAT)
     logger = logging.getLogger()
 
-    
+    for i in len(numeros):
+        if (numeros[i][8] != "Martes") or (numeros[i][8] != "Viernes"):
+            logger.error("Error en numeros.txt Día indicado incorrecto debe ser Martes o Viernes")
 
