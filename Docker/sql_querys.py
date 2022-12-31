@@ -6,10 +6,11 @@ def numerosSQL(numeros):
 
     return sql_query
 
-def millonesSQL(numeros):
+def millonesSQL(numeros,ultimoID):
     sql_millones = []
 
     for i in range(len(numeros)):
-        sql_millones.append("""INSERT INTO MILLONES VALUES (%s,%s,%s)""" % ('NULL',numeros[i][11],numeros[i][1]))
+        ultimoID += 1
+        sql_millones.append("""INSERT INTO MILLONES VALUES (%s,%s,%s)""" % ('NULL',numeros[i][11],ultimoID))
     
     return sql_millones

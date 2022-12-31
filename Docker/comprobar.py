@@ -17,8 +17,8 @@ def checkErrorFile(numeros):
         format = LOG_FORMAT)
     logger = logging.getLogger()
 
-    meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
-    dias = ["Martes","Viernes"]
+    meses = ["'Enero'","'Febrero'","'Marzo'","'Abril'","'Mayo'","'Junio'","'Julio'","'Agosto'","'Septiembre'","'Octubre'","'Noviembre'","'Diciembre'"]
+    dias = ["'Martes'","'Viernes'"]
     error = 0
 
     for i in range(len(numeros)):
@@ -30,3 +30,21 @@ def checkErrorFile(numeros):
             error += 1
     
     return error
+
+def successUpdate():
+    LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
+    logging.basicConfig(filename = "/var/log/euromillon/message.log",
+        level = logging.DEBUG,
+        format = LOG_FORMAT)
+    logger = logging.getLogger()
+
+    logger.info("Base de datos actualizada correctamente.")
+
+def errorUpdate():
+    LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
+    logging.basicConfig(filename = "/var/log/euromillon/message.log",
+        level = logging.DEBUG,
+        format = LOG_FORMAT)
+    logger = logging.getLogger()
+
+    logger.error("Error actualizando la base de datos.")
