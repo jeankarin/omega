@@ -1,6 +1,7 @@
 def main():
     ###Creamos el fichero de log
-    comprobar.checkErrorsLogs()
+    registro = comprobar_class.checkError()
+    registro.checkErrorsLogs()
 
     while True:
         if (os.path.exists('/opt/files/numeros.txt')):
@@ -12,7 +13,7 @@ def main():
             ultimoID = 0
 
             ###Comprobamos errores en el fichero
-            error = comprobar.checkErrorFile(numeros)
+            error = registro.checkErrorFile(numeros)
             if error > 0:
                 os.system("mv /opt/files/numeros.txt /opt/files/numeros_error.txt")
                 exit()
@@ -25,15 +26,15 @@ def main():
                 miConexio2 = sql_connection.conexionDB()
                 result2 = miConexio2.insertMillones(sql_millones)
                 if (result1 == 0) and (result2 == 0):
-                    comprobar.successUpdate()
+                    registro.successUpdate()
                     os.system('rm /opt/files/numeros.txt')
                 else:
-                    comprobar.errorUpdate()
+                    registro.errorUpdate()
 
 if __name__ == '__main__':
     import sql_connection
     import leerfichero
-    import comprobar
+    import comprobar_class
     import os
     import sql_querys
     main()

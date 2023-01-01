@@ -1,17 +1,22 @@
 import MySQLdb
 import json
+import comprobar_class
 
 class conexionDB:
     with open('/opt/app/settings.json', 'r') as file:
         config = json.load(file)
 
+    mySQLerror = comprobar_class.checkError()
     dbserver = config['EUROMILLON']['DBSERVER']
     dbuser = config['EUROMILLON']['USERNAME']
     dbpassword = config['EUROMILLON']['PASSWORD']
     dbname = config['EUROMILLON']['DATABASE']
 
-    conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname)
-    cursor = conexion.cursor()
+    try:
+        conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname)
+        cursor = conexion.cursor()
+    except MySQLdb.Error:
+        mySQLerror.checkConnectionDB()
 
     def ultimoID(self):
         self.__class__.cursor.execute("SELECT * FROM NUMEROS;")
