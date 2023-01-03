@@ -30,8 +30,11 @@ def main():
                     os.system('rm /opt/files/numeros.txt')
                 else:
                     registro.errorUpdate()
+        
+        time.sleep(5)
 
 if __name__ == '__main__':
+    import time
     import sql_connection
     import leerfichero
     import comprobar_class
