@@ -7,7 +7,7 @@ def main():
         if (os.path.exists('/opt/files/numeros.txt')):
             ###Leemos el fichero
             numeros = leerfichero.LecturaFichero('/opt/files/numeros.txt')
-            
+
             ###Variables para check
             error = 0
             ultimoID = 0
@@ -21,7 +21,7 @@ def main():
                 sql_numeros = sql_querys.numerosSQL(numeros)
                 miConexio = sql_connection.conexionDB()
                 ultimoID = miConexio.ultimoID()
-                sql_millones = sql_querys.millonesSQL(numeros,ultimoID)
+                sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
                 result1 = miConexio.insertNumeros(sql_numeros)
                 miConexio2 = sql_connection.conexionDB()
                 result2 = miConexio2.insertMillones(sql_millones)
@@ -30,8 +30,9 @@ def main():
                     os.system('rm /opt/files/numeros.txt')
                 else:
                     registro.errorUpdate()
-        
+
         time.sleep(5)
+
 
 if __name__ == '__main__':
     import time
@@ -40,4 +41,5 @@ if __name__ == '__main__':
     import comprobar_class
     import os
     import sql_querys
+
     main()
