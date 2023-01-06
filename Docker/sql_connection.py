@@ -19,9 +19,13 @@ class conexionDB:
         mySQLerror.checkConnectionDB()
 
     def ultimoID(self):
-        self.__class__.cursor.execute("SELECT * FROM NUMEROS;")
-        data = self.__class__.cursor.fetchall()
-        ultimoID = data[len(data)-1][0]
+        errorID = comprobar_class.checkError()
+        try:
+            self.__class__.cursor.execute("SELECT * FROM NUMEROS;")
+            data = self.__class__.cursor.fetchall()
+            ultimoID = data[len(data)-1][0]
+        except AttributeError:
+            errorID.checkSQLServer()
         
         return ultimoID
     

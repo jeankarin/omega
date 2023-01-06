@@ -10,6 +10,9 @@ class checkError:
     def checkConnectionDB(self):
         self.logger.error("Imposible conectar con el servidor MySQL despues del reinicio del contenedor")
     
+    def checkSQLServer(self):
+        self.logger.error("Servidor MySQL apagado o no disponible")
+    
     def checkErrorFile(self,numeros):
         meses = ["'Enero'","'Febrero'","'Marzo'","'Abril'","'Mayo'","'Junio'","'Julio'","'Agosto'","'Septiembre'","'Octubre'","'Noviembre'","'Diciembre'"]
         dias = ["'Martes'","'Viernes'"]
