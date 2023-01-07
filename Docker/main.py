@@ -21,6 +21,8 @@ def main():
                 sql_numeros = sql_querys.numerosSQL(numeros)
                 miConexio = sql_connection.conexionDB()
                 ultimoID = miConexio.ultimoID()
+                if ultimoID == False:
+                    exit()
                 sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
                 result1 = miConexio.insertNumeros(sql_numeros)
                 miConexio2 = sql_connection.conexionDB()
@@ -30,8 +32,8 @@ def main():
                     os.system('rm /opt/files/numeros.txt')
                 else:
                     registro.errorUpdate()
-
-        time.sleep(5)
+        else:
+            time.sleep(5)
 
 
 if __name__ == '__main__':

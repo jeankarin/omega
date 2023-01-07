@@ -20,6 +20,8 @@ class conexionDB:
 
     def ultimoID(self):
         errorID = comprobar_class.checkError()
+        ultimoID = ''
+
         try:
             self.__class__.cursor.execute("SELECT * FROM NUMEROS;")
             data = self.__class__.cursor.fetchall()
@@ -27,7 +29,10 @@ class conexionDB:
         except AttributeError:
             errorID.checkSQLServer()
         
-        return ultimoID
+        if ultimoID == '':
+            return False
+        else:
+            return ultimoID
     
     def insertNumeros(self,sql_numeros):
         for i in range(len(sql_numeros)):
