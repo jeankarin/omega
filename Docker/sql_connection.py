@@ -28,6 +28,8 @@ class conexionDB:
             ultimoID = data[len(data)-1][0]
         except AttributeError:
             errorID.checkSQLServer()
+        except IndexError:
+            errorID.ultimoIDError()
         
         if ultimoID == '':
             return False
