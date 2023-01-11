@@ -2,7 +2,7 @@ import logging
 
 class checkError:
     LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-    logging.basicConfig(filename = "/var/log/euromillon/message.log",
+    logging.basicConfig(filename = "/opt/files/euromillon/message.log",
         level = logging.DEBUG,
         format = LOG_FORMAT)
     logger = logging.getLogger()
@@ -42,3 +42,6 @@ class checkError:
     
     def errorUpdate(self):
         self.logger.error("Error actualizando la base de datos.")
+    
+    def ultimoIDError(self):
+        self.logger.error("El campo ultimoID esta vacio.")
