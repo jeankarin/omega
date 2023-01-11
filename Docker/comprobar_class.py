@@ -2,7 +2,7 @@ import logging
 
 class checkError:
     LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-    logging.basicConfig(filename = "/opt/files/euromillon/message.log",
+    logging.basicConfig(filename = "/opt/files/message.log",
         level = logging.DEBUG,
         format = LOG_FORMAT)
     logger = logging.getLogger()
