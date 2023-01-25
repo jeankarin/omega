@@ -42,10 +42,11 @@ class conexionDB:
                 self.__class__.cursor.execute(sql_numeros[i])
                 self.__class__.conexion.commit()
                 self.__class__.conexion.close
-                return 0
             except:
                 self.__class__.conexion.rollback()
                 return 1
+        
+        return 0
     
     def insertMillones(self,sql_millones):
         for i in range(len(sql_millones)):
