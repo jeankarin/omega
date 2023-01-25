@@ -25,8 +25,8 @@ def main():
                     exit()
                 sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
                 result1 = miConexio.insertNumeros(sql_numeros)
-                miConexio2 = sql_connection.conexionDB()
                 time.sleep(5) # Dejamos 5 segundos porque parece que no inserta dos lineas seguidas, da error de conexión con la base de datos.
+                miConexio2 = sql_connection.conexionDB()
                 result2 = miConexio2.insertMillones(sql_millones)
                 if (result1 == 0) and (result2 == 0):
                     registro.successUpdate()
