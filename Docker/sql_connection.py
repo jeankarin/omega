@@ -41,11 +41,11 @@ class conexionDB:
             try:
                 self.__class__.cursor.execute(sql_numeros[i])
                 self.__class__.conexion.commit()
-                self.__class__.conexion.close
             except:
                 self.__class__.conexion.rollback()
                 return 1
         
+        self.__class__.conexion.close
         return 0
     
     def insertMillones(self,sql_millones):
@@ -53,8 +53,9 @@ class conexionDB:
             try:
                 self.__class__.cursor.execute(sql_millones[i])
                 self.__class__.conexion.commit()
-                self.__class__.conexion.close
-                return 0
             except:
                 self.__class__.conexion.rollback()
                 return 1
+        
+        self.__class__.conexion.close
+        return 0
