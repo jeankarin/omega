@@ -19,7 +19,7 @@ class conexionDB:
         mySQLerror.checkConnectionDB()
 
     def lastregistry(self):
-        self.__class__.cursor.execute("SELECT * FROM NUMEROS ORDER BY ID DESC LIMIT 1;")
+        self.__class__.cursor.execute("SELECT * FROM NUMEROS ORDER BY ID DESC LIMIT 5;")
         datos = self.__class__.cursor.fetchall()
         self.__class__.conexion.close
         return datos
