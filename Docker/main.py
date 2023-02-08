@@ -1,3 +1,10 @@
+def createFile():
+    miConexion3 = sql_connection.conexionDB()
+    datos = miConexion3.lastregistry()
+    """
+    Crear fichero con el registro este y que se vaya sobreescribiendo
+    """
+
 def main():
     ###Creamos el fichero de log
     registro = comprobar_class.checkError()
@@ -30,6 +37,7 @@ def main():
                 if (result1 == 0) and (result2 == 0):
                     registro.successUpdate()
                     os.system('rm /opt/files/numeros.txt')
+                    createFile()
                 else:
                     registro.errorUpdate()
         else:

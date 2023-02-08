@@ -18,6 +18,12 @@ class conexionDB:
     except MySQLdb.Error:
         mySQLerror.checkConnectionDB()
 
+    def lastregistry(self):
+        self.__class__.cursor.execute("SELECT * FROM NUMEROS ORDER BY ID DESC LIMIT 1;")
+        datos = self.__class__.cursor.fetchall()
+        self.__class__.conexion.close
+        return datos
+        
     def ultimoID(self):
         errorID = comprobar_class.checkError()
         ultimoID = ''
@@ -32,8 +38,10 @@ class conexionDB:
             errorID.ultimoIDError()
         
         if ultimoID == '':
+            self.__class__.conexion.close
             return False
         else:
+            self.__class__.conexion.close
             return ultimoID
     
     def insertNumeros(self,sql_numeros):
