@@ -1,9 +1,9 @@
 def createFile():
     miConexion3 = sql_connection.conexionDB()
     datos = miConexion3.lastregistry()
-    """
-    Crear fichero con el registro este y que se vaya sobreescribiendo
-    """
+    
+    with open("/opt/files/lastregistry.txt","w") as file:
+        file.write(datos)
 
 def main():
     ###Creamos el fichero de log
