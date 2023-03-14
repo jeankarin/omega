@@ -37,7 +37,7 @@ class conexionDB:
         except IndexError:
             errorID.ultimoIDError()
         
-        if ultimoID == '' or self.__class__.conexion == '':
+        if ultimoID == '' or self.__class__.conexion == '' or not self.__class_.conexion:
             return False
         else:
             self.__class__.conexion.close
