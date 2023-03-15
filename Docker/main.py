@@ -3,7 +3,8 @@ def createFile():
     datos = miConexion3.lastregistry()
     
     with open("/opt/files/lastregistry.txt","w") as file:
-        file.write(str(datos) + '\n')
+        for i in range(len(datos)):
+            file.write(str(datos[i]) + '\n')
     
     file.close()
 
