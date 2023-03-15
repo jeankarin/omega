@@ -25,7 +25,7 @@ class checkError:
             if (numeros[i][9] not in meses):
                 self.logger.error("Error en numeros.txt Mes mal indicado.")
                 error += 1
-            if type(numeros[i[11]]) == False:
+            if type(numeros[i][11]) == False:
                 self.logger.error("Error en numeros.txt Millon mal indicado.")
                 error += 1
     
