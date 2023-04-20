@@ -3,3 +3,6 @@
 settings.json
 mysql_con.pyc
 .idea/*
+._.DS_Store
+.DS_Store
+._*
