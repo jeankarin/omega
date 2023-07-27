@@ -2,15 +2,6 @@
 Fichero principal para ejecutar la aplicación
 """
 
-"""
-Creamos los ficheros necesarios.
-"""
-def newFiles():
-    if (os.path.isfile("/opt/files/message.log") == False):
-        os.system("touch /opt/files/message.log")
-    if (os.path.isfile("/opt/files/lastregistry.txt") == False):
-        os.system("touch /opt/files/lastregistry.txt")
-
 # Poblamos el fichero con la información necesaria
 def lastRegistryFile():
     tempID = 0
@@ -24,19 +15,28 @@ def lastRegistryFile():
                 file.write(str(tempID[i]) + "\n")
         
         file.close()
+
+
+# Creamos los ficheros necesarios.
+def newFiles():
+    if (os.path.isfile("/opt/files/message.log") == False):
+        os.system("touch /opt/files/message.log")
+    if (os.path.isfile("/opt/files/lastregistry.txt") == False):
+        os.system("touch /opt/files/lastregistry.txt")
     
-    return tempID[0][0]
+    if (os.path.exists("/opt/files/lastregistry.txt")) == True:
+        lastRegistryFile()
 
 def main():
     newFiles() # Creamos los ficheros si no existen.
+    lastRegistryFile() # Generamos fichero con los últimos 5 registros
 
     # Ejecutamos aplicación princial
     while True:
         if (os.path.exists("/opt/files/numeros.txt")):
 
             # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
-            ultimoID = 0
-            ultimoID = lastRegistryFile()
+            ultimoID = lectura_fichero('/opt/files/lastregistry.txt')
             print(ultimoID)
 
             # Leemos el fichero numeros.txt
