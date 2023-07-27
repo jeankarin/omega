@@ -36,7 +36,8 @@ def main():
         if (os.path.exists("/opt/files/numeros.txt")):
 
             # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
-            ultimoID = lectura_fichero('/opt/files/lastregistry.txt')
+            ultimoID_temp = lectura_fichero.lecturaFichero('/opt/files/lastregistry.txt')
+            ultimoID = ultimoID_temp[1::]
             print(ultimoID)
 
             # Leemos el fichero numeros.txt
