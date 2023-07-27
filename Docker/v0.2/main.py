@@ -14,18 +14,18 @@ def newFiles():
 # Poblamos el fichero con la información necesaria
 def lastRegistryFile():
     if (os.stat("/opt/files/lastregistry.txt").st_size == 0):
-        ultimoID = 0
+        tempID = 0
         miConexion = sql_connection.conexionDB()
-        ultimoID = miConexion.lastregistry()
+        tempID = miConexion.lastregistry()
 
         # Escribimos los registros en el fichero.
         with open("/opt/files/lastregistry.txt", "w") as file:
-            for i in range(len(ultimoID)):
-                file.write(str(ultimoID[i]) + "\n")
+            for i in range(len(tempID)):
+                file.write(str(tempID[i]) + "\n")
         
         file.close()
     
-    return ultimoID[0][0]
+    return tempID[0][0]
 
 def main():
     newFiles() # Creamos los ficheros si no existen.
