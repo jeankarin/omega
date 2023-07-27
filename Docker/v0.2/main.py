@@ -13,8 +13,8 @@ def newFiles():
 
 # Poblamos el fichero con la información necesaria
 def lastRegistryFile():
+    tempID = 0
     if (os.stat("/opt/files/lastregistry.txt").st_size == 0):
-        tempID = 0
         miConexion = sql_connection.conexionDB()
         tempID = miConexion.lastregistry()
 
