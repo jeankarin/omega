@@ -29,15 +29,15 @@ def lastRegistryFile():
 
 def main():
     newFiles() # Creamos los ficheros si no existen.
-    ping = 1 # Aquí guardaremos el resultado del ping, si es 0 esque está correcto
 
     # Ejecutamos aplicación princial
     while True:
-        if (os.path.exists("/opt/files/numeros.txt") and ping == 0):
+        if (os.path.exists("/opt/files/numeros.txt")):
 
             # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
             ultimoID = 0
             ultimoID = lastRegistryFile()
+            print(ultimoID)
 
             # Leemos el fichero numeros.txt
             numeros = lectura_fichero.lecturaFichero('/opt/files/numeros.txt')
