@@ -1,6 +1,7 @@
 import MySQLdb
 import json
 import logging
+import os
 
 class conexionDB:
     # Creamos la estructura del log
@@ -10,23 +11,29 @@ class conexionDB:
         format = LOG_FORMAT)
     logger = logging.getLogger()
 
-    # Leemos los datos del fichero de conexión para preparar la conexión
-    try:
-        with open('/opt/app/settings.json','r') as file:
-            config = json.load(file)
-        dbserver = config['EUROMILLON']['DBSERVER']
-        dbuser = config['EUROMILLON']['USERNAME']
-        dbpassword = config['EUROMILLON']['PASSWORD']
-        dbname = config['EUROMILLON']['DATABASE']
+    # Hacemos ping al servidor
+    num = os.system("ping -c2 -q -i5 172.17.0.3")
 
-        # Intentamos realizar la conexión y sino registramos el error en el log
+    # Leemos los datos del fichero de conexión para preparar la conexión
+    if num == 0:
         try:
-            conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname)
-            cursor = conexion.cursor()
-        except MySQLdb.Error:
-            logger.error("Imposible conectar con el servidor MySQL despues del reinicio del contenedor")
-    except IOError:
-        logger.error("Imposible abrir el fichero settings.json")
+            with open('/opt/app/settings.json','r') as file:
+                config = json.load(file)
+            dbserver = config['EUROMILLON']['DBSERVER']
+            dbuser = config['EUROMILLON']['USERNAME']
+            dbpassword = config['EUROMILLON']['PASSWORD']
+            dbname = config['EUROMILLON']['DATABASE']
+
+            # Intentamos realizar la conexión y sino registramos el error en el log
+            try:
+                conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname)
+                cursor = conexion.cursor()
+            except MySQLdb.Error:
+                logger.error("Imposible conectar con el servidor MySQL despues del reinicio del contenedor")
+        except IOError:
+            logger.error("Imposible abrir el fichero settings.json")
+    else:
+        logger.error("Servidor MySQL no disponible")
     
     # Leemos los últimos 5 registros de la base de datos
     def lastregistry(self):

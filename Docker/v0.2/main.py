@@ -27,18 +27,12 @@ def lastRegistryFile():
     
     return ultimoID[0][0]
 
-# Hacemos ping al servidor MySQL para saber si está disponible
-def pingServerMySQL():
-    num = os.system("ping -c2 -q -i5 172.17.0.3")
-    return num
-
 def main():
     newFiles() # Creamos los ficheros si no existen.
     ping = 1 # Aquí guardaremos el resultado del ping, si es 0 esque está correcto
 
     # Ejecutamos aplicación princial
     while True:
-        ping = pingServerMySQL()
         if (os.path.exists("/opt/files/numeros.txt") and ping == 0):
 
             # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
