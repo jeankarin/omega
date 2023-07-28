@@ -39,15 +39,19 @@ def checkErrorFile(numeros):
     meses = ["'Enero'","'Febrero'","'Marzo'","'Abril'","'Mayo'","'Junio'","'Julio'","'Agosto'","'Septiembre'","'Octubre'","'Noviembre'","'Diciembre'"]
     dias = ["'Martes'","'Viernes'"]
 
-    for i in range(len(numeros)):
-        if (numeros[i][7] not in dias):
-              logger.error("Error en numeros.txt Día mal indicado.")
-              error += 1
-        if (numeros[i][9] not in meses):
-                logger.error("Error en numeros.txt Mes mal indicado.")
+    try:
+        for i in range(len(numeros)):
+            if (numeros[i][7] not in dias):
+                logger.error("Error en numeros.txt Día mal indicado.")
                 error += 1
-        if type(numeros[i][11]) == False:
-                logger.error("Error en numeros.txt Millon mal indicado.")
-                error += 1
+            if (numeros[i][9] not in meses):
+                    logger.error("Error en numeros.txt Mes mal indicado.")
+                    error += 1
+            if type(numeros[i][11]) == False:
+                    logger.error("Error en numeros.txt Millon mal indicado.")
+                    error += 1
+    except IndexError:
+         logger.error("El fichero numeros.txt está mal creado")
+         error += 1
     
     return error
