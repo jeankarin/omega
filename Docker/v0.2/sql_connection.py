@@ -2,6 +2,7 @@ import MySQLdb
 import json
 import logging
 import os
+import time
 
 class conexionDB:
     # Creamos la estructura del log
@@ -34,6 +35,7 @@ class conexionDB:
             logger.error("Imposible abrir el fichero settings.json")
     else:
         logger.error("Servidor MySQL no disponible")
+        time.sleep(30) # Esperamos 30 segundos a que se inicie el contenedor del MySQL
     
     # Leemos los últimos 5 registros de la base de datos
     def lastregistry(self):
