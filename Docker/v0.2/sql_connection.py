@@ -12,7 +12,7 @@ class conexionDB:
     logger = logging.getLogger()
 
     # Hacemos ping al servidor
-    num = os.system("ping -c2 -q -i5 172.17.0.3")
+    num = os.system("ping -c2 -q -i5 172.17.0.5")
 
     # Leemos los datos del fichero de conexión para preparar la conexión
     if num == 0:
