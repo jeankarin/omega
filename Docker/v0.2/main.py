@@ -37,7 +37,7 @@ def main():
 
             # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
             ultimoID_temp = lectura_fichero.lecturaFichero('/opt/files/lastregistry.txt')
-            ultimoID = ultimoID_temp[1::]
+            ultimoID = ultimoID_temp[0][0][1::]
             print(ultimoID)
 
             # Leemos el fichero numeros.txt
