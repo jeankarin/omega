@@ -38,20 +38,21 @@ def main():
             # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
             ultimoID_temp = lectura_fichero.lecturaFichero('/opt/files/lastregistry.txt')
             ultimoID = ultimoID_temp[0][0][1::]
-            print(ultimoID)
 
             # Leemos el fichero numeros.txt
             numeros = lectura_fichero.lecturaFichero('/opt/files/numeros.txt')
 
             # Comprobamos que el fichero tenga la información correcta
             error = 0
-
             error = lectura_fichero.checkErrorFile(numeros)
+
             if error > 0:
                 os.system("mv /opt/files/numeros.txt /opt/files/numeros_error.txt")
                 pass # No salimos porque no debería seguir ejecutando porque no existe el fichero numeros.txt
             else:
                 sql_numeros = sql_querys.numerosSQL(numeros)
+                sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
+                print(sql_numeros)
         else:
             time.sleep(5)
 
