@@ -21,10 +21,11 @@ def lastRegistryFile(temp):
 
 # Creamos los ficheros necesarios.
 def newFiles():
+    temp = 0
     if (os.path.isfile("/opt/files/message.log") == False):
         os.system("touch /opt/files/message.log")
     if (os.path.isfile("/opt/files/lastregistry.txt") == False):
         os.system("touch /opt/files/lastregistry.txt")
     
     if (os.path.exists("/opt/files/lastregistry.txt")) == True:
-        lastRegistryFile()
+        lastRegistryFile(temp)
