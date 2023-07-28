@@ -2,34 +2,11 @@
 Fichero principal para ejecutar la aplicación
 """
 
-# Poblamos el fichero con la información necesaria
-def lastRegistryFile():
-    tempID = 0
-    if (os.stat("/opt/files/lastregistry.txt").st_size == 0):
-        miConexion = sql_connection.conexionDB()
-        tempID = miConexion.lastregistry()
-
-        # Escribimos los registros en el fichero.
-        with open("/opt/files/lastregistry.txt", "w") as file:
-            for i in range(len(tempID)):
-                file.write(str(tempID[i]) + "\n")
-        
-        file.close()
-
-
-# Creamos los ficheros necesarios.
-def newFiles():
-    if (os.path.isfile("/opt/files/message.log") == False):
-        os.system("touch /opt/files/message.log")
-    if (os.path.isfile("/opt/files/lastregistry.txt") == False):
-        os.system("touch /opt/files/lastregistry.txt")
-    
-    if (os.path.exists("/opt/files/lastregistry.txt")) == True:
-        lastRegistryFile()
-
 def main():
-    newFiles() # Creamos los ficheros si no existen.
-    lastRegistryFile() # Generamos fichero con los últimos 5 registros
+    temp = 0
+    ficheros_necesarios.newFiles() # Creamos los ficheros si no existen.
+    ficheros_necesarios.lastRegistryFile(temp) # Generamos fichero con los últimos 5 registros
+    registro = logging_class.checkError()
 
     # Ejecutamos aplicación princial
     while True:
@@ -50,9 +27,23 @@ def main():
                 os.system("mv /opt/files/numeros.txt /opt/files/numeros_error.txt")
                 pass # No salimos porque no debería seguir ejecutando porque no existe el fichero numeros.txt
             else:
+                # Montamos las querys con la información e iniciamos un insert con los datos.
                 sql_numeros = sql_querys.numerosSQL(numeros)
                 sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
-                print(sql_numeros)
+                miConexion = sql_connection.conexionDB()
+                result1 = miConexion.insertNumeros(sql_numeros)
+                miConexion2 = sql_connection.conexionDB()
+                result2 = miConexion2.insertMillones(sql_millones)
+
+                # Borramos el fichero si todo ha ido bien
+                if (result1 == 0) and (result2 == 0):
+                    registro.successUpdate()
+                    os.system("rm /opt/files/numeros.txt")
+                    # Falta actualizar el fichero lastregistry con los nuevos datos.
+                    temp = 1
+                    ficheros_necesarios.lastRegistryFile(temp)
+                else:
+                    registro.errorUpdate()
         else:
             time.sleep(5)
 
@@ -62,5 +53,7 @@ if __name__ == '__main__':
     import lectura_fichero # Función para leer fichero csv
     import sql_querys # Función para generar las querys
     import os # Para cargar comandos del sistema y borrar los ficheros txt después de usarlos
+    import logging_class # Al final hemos creado una clase para gestionar los errores del log
+    import ficheros_necesarios # Aquí se crean los ficheros necesarios 
 
     main()

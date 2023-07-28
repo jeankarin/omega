@@ -14,7 +14,7 @@ def millonesSQL(numeros,ultimoID):
     sql_millones = []
 
     for i in range(len(numeros)):
-        ultimoID += 1
+        ultimoID = int(ultimoID) + 1
         sql_millones.append("""INSERT INTO MILLONES VALUES (%s,%s,%s)""" % ('NULL',numeros[i][11],ultimoID))
     
     return sql_millones
