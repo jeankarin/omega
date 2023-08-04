@@ -4,16 +4,12 @@ comprobamos también que tenga la información correcta
 """
 
 import csv
-import logging
+import logging_class
 
 def lecturaFichero(lectura):
     numeros = []
 
-    LOG_FORMAT = "%(levelname)s %(asctime)s = %(message)s"
-    logging.basicConfig(filename = "/opt/files/message.log",
-                        level = logging.DEBUG,
-                        format = LOG_FORMAT)
-    logger = logging.getLogger()
+    logError1 = logging_class.checkError()
 
     try:
         with open(lectura, newline = '') as csvfile:
@@ -21,7 +17,7 @@ def lecturaFichero(lectura):
             for row in csvreader:
                 numeros.append(row)
     except FileNotFoundError:
-            logger.error("Lectura fichero: No existe el fichero numeros.txt ó error leyendo el fichero")
+            logError1.lecturaFichero()
             return 1
 
     return numeros
@@ -29,12 +25,7 @@ def lecturaFichero(lectura):
 # Comprobamos que el fichero tenga la información correcta
 def checkErrorFile(numeros):
     error = 0
-
-    LOG_FORMAT = "%(levelname)s %(asctime)s = %(message)s"
-    logging.basicConfig(filename = "/opt/files/message.log",
-                        level = logging.DEBUG,
-                        format = LOG_FORMAT)
-    logger = logging.getLogger()
+    logError2 = logging_class.checkError()
 
     meses = ["'Enero'","'Febrero'","'Marzo'","'Abril'","'Mayo'","'Junio'","'Julio'","'Agosto'","'Septiembre'","'Octubre'","'Noviembre'","'Diciembre'"]
     dias = ["'Martes'","'Viernes'"]
@@ -42,16 +33,16 @@ def checkErrorFile(numeros):
     try:
         for i in range(len(numeros)):
             if (numeros[i][7] not in dias):
-                logger.error("Error en numeros.txt Día mal indicado.")
+                logError2.errorNum(1)
                 error += 1
             if (numeros[i][9] not in meses):
-                    logger.error("Error en numeros.txt Mes mal indicado.")
+                    logError2.errorNum(2)
                     error += 1
             if type(numeros[i][11]) == False:
-                    logger.error("Error en numeros.txt Millon mal indicado.")
+                    logError2.errorNum(3)
                     error += 1
     except IndexError:
-         logger.error("El fichero numeros.txt está mal creado")
+         logError2.errorNum(4)
          error += 1
     
     return error

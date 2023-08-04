@@ -1,19 +1,14 @@
 import MySQLdb
 import json
-import logging
 import os
 import time
+import logging_class
 
 class conexionDB:
-    # Creamos la estructura del log
-    LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-    logging.basicConfig(filename = "/opt/files/message.log",
-        level = logging.DEBUG,
-        format = LOG_FORMAT)
-    logger = logging.getLogger()
 
     # Hacemos ping al servidor
     num = os.system("ping -c2 -q -i5 172.17.0.5")
+    logError1 = logging_class.checkError()
 
     # Leemos los datos del fichero de conexión para preparar la conexión
     if num == 0:
@@ -30,11 +25,11 @@ class conexionDB:
                 conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname)
                 cursor = conexion.cursor()
             except MySQLdb.Error:
-                logger.error("Imposible conectar con el servidor MySQL despues del reinicio del contenedor")
+                logError1.errorMySQL(1)
         except IOError:
-            logger.error("Imposible abrir el fichero settings.json")
+            logError1.errorMySQL(2)
     else:
-        logger.error("Servidor MySQL no disponible")
+        logError1.errorMySQL(3)
         time.sleep(30) # Esperamos 30 segundos a que se inicie el contenedor del MySQL
     
     # Leemos los últimos 5 registros de la base de datos
