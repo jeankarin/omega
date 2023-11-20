@@ -6,3 +6,4 @@ mysql_con.pyc
 ._.DS_Store
 .DS_Store
 ._*
+*.log
