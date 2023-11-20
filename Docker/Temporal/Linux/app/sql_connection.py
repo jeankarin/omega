@@ -7,7 +7,7 @@ import time
 class conexionDB:
     # Creamos la estructura del log
     LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-    logging.basicConfig(filename = "/home/jeankarin/Tools/python/euromillon_temporal/files/message.log",
+    logging.basicConfig(filename = "/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/message.log",
         level = logging.DEBUG,
         format = LOG_FORMAT)
     logger = logging.getLogger()
@@ -18,7 +18,7 @@ class conexionDB:
     # Leemos los datos del fichero de conexión para preparar la conexión
     if num == 0:
         try:
-            with open('/home/jeankarin/Tools/python/euromillon_temporal/app/settings.json','r') as file:
+            with open('/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/app/settings.json','r') as file:
                 config = json.load(file)
             dbserver = config['EUROMILLON']['DBSERVER']
             # dbpuerto = config['EUROMILLON']['PUERTO']

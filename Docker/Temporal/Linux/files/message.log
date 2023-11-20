@@ -23,3 +23,7 @@ INFO 2023-11-05 09:54:10,705 - Base de datos actualizada correctamente
 INFO 2023-11-13 09:05:40,204 - Error actualizando la base de datos
 INFO 2023-11-13 09:06:40,590 - Base de datos actualizada correctamente
 INFO 2023-11-13 09:13:34,840 - Base de datos actualizada correctamente
+ERROR 2023-11-18 04:17:01,745 - Lectura fichero: No existe el fichero numeros.txt ó error leyendo el fichero
+ERROR 2023-11-18 04:19:56,617 - Lectura fichero: No existe el fichero numeros.txt ó error leyendo el fichero
+ERROR 2023-11-18 04:22:22,776 - Lectura fichero: No existe el fichero numeros.txt ó error leyendo el fichero
+INFO 2023-11-18 04:24:36,793 - Base de datos actualizada correctamente

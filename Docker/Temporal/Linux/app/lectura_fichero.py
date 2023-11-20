@@ -10,7 +10,7 @@ def lecturaFichero(lectura):
     numeros = []
 
     LOG_FORMAT = "%(levelname)s %(asctime)s = %(message)s"
-    logging.basicConfig(filename = "/home/jeankarin/Tools/python/euromillon_temporal/files/message.log",
+    logging.basicConfig(filename = "/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/message.log",
                         level = logging.DEBUG,
                         format = LOG_FORMAT)
     logger = logging.getLogger()
@@ -31,7 +31,7 @@ def checkErrorFile(numeros):
     error = 0
 
     LOG_FORMAT = "%(levelname)s %(asctime)s = %(message)s"
-    logging.basicConfig(filename = "/home/jeankarin/Tools/python/euromillon_temporal/files/message.log",
+    logging.basicConfig(filename = "/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/message.log",
                         level = logging.DEBUG,
                         format = LOG_FORMAT)
     logger = logging.getLogger()

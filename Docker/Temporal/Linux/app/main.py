@@ -18,21 +18,22 @@ def main():
     registro = logging_class.checkError()
 
     # Ejecutamos aplicación princial
-    if (os.path.exists("/home/jeankarin/Tools/python/euromillon_temporal/files/numeros.txt")):
+    if (os.path.exists("/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/numeros.txt")):
 
         # Conseguimos el último ID del fichero si existe o creamos el fichero si no existe
-        ultimoID_temp = lectura_fichero.lecturaFichero('/home/jeankarin/Tools/python/euromillon_temporal/files/lastregistry.txt')
+        ultimoID_temp = lectura_fichero.lecturaFichero('/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/lastregistry.txt')
+        #print(type(ultimoID_temp))
         ultimoID = ultimoID_temp[0][0][1::]
 
         # Leemos el fichero numeros.txt
-        numeros = lectura_fichero.lecturaFichero('/home/jeankarin/Tools/python/euromillon_temporal/files/numeros.txt')
+        numeros = lectura_fichero.lecturaFichero('/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/numeros.txt')
 
         # Comprobamos que el fichero tenga la información correcta
         error = 0
         error = lectura_fichero.checkErrorFile(numeros)
 
         if error > 0:
-            os.system("mv /home/jeankarin/Tools/python/euromillon_temporal/files/numeros.txt /home/jeankarin/Tools/python/euromillon_temporal/files/numeros_error.txt")
+            os.system("mv /home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/numeros.txt /home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/numeros_error.txt")
             pass # No salimos porque no debería seguir ejecutando porque no existe el fichero numeros.txt
         else:
             # Montamos las querys con la información e iniciamos un insert con los datos.
@@ -46,7 +47,7 @@ def main():
             # Borramos el fichero si todo ha ido bien
             if (result1 == 0) and (result2 == 0):
                 registro.successUpdate()
-                os.system("rm /home/jeankarin/Tools/python/euromillon_temporal/files/numeros.txt")
+                os.system("rm /home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/numeros.txt")
                 # Falta actualizar el fichero lastregistry con los nuevos datos.
                 temp = 1
                 ficheros_necesarios.lastRegistryFile(temp)
