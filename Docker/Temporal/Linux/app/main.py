@@ -13,7 +13,7 @@ import ficheros_necesarios # Aquí se crean los ficheros necesarios
 
 def main():
     temp = 0
-    ficheros_necesarios.newFiles() # Creamos los ficheros si no existen.
+    ficheros_necesarios.newFiles() #Creamos los ficheros si no existen.
     ficheros_necesarios.lastRegistryFile(temp) # Generamos fichero con los últimos 5 registros
     registro = logging_class.checkError()
 

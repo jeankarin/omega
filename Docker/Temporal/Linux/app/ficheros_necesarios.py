@@ -12,7 +12,7 @@ def lastRegistryFile(temp):
         miConexion = sql_connection.conexionDB()
         tempID = miConexion.lastregistry()
 
-        # Escribimos los registros en el fichero.
+        #Escribimos los registros en el fichero.
         with open("/home/jeankarin/DevLocal/git/omega/Docker/Temporal/Linux/files/lastregistry.txt", "w") as file:
             for i in range(len(tempID)):
                 file.write(str(tempID[i]) + "\n")

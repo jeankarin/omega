@@ -13,7 +13,7 @@ class conexionDB:
     logger = logging.getLogger()
 
     # Hacemos ping al servidor
-    num = os.system("ping -c2 -q -i5 51.195.200.161")
+    num = os.system("ping -c2 -q -i5 192.168.1.41")
 
     # Leemos los datos del fichero de conexión para preparar la conexión
     if num == 0:
@@ -28,7 +28,7 @@ class conexionDB:
 
             # Intentamos realizar la conexión y sino registramos el error en el log
             try:
-                conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname,port=3399)
+                conexion = MySQLdb.connect(dbserver,dbuser,dbpassword,dbname,port=3306)
                 cursor = conexion.cursor()
             except MySQLdb.Error:
                 logger.error("Imposible conectar con el servidor MySQL despues del reinicio del contenedor")
