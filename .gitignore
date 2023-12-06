@@ -7,3 +7,4 @@ mysql_con.pyc
 .DS_Store
 ._*
 *.log
+message.log
