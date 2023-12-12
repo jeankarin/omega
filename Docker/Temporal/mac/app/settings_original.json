@@ -1,0 +1,8 @@
+{
+	"EUROMILLON": {
+		"DBSERVER" : "IP_Servidor",
+        "DATABASE" : "NOMBRE_DATABASE",
+        "USERNAME" : "USUARIO_DATABASE",
+        "PASSWORD" : "CONTRASENYA"
+    }
+}
