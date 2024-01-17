@@ -3,17 +3,17 @@ Fichero principal para ejecutar la aplicación
 """
 
 # Importamos los ficheros y librerías necesarias
-import time # Para hacer que se espere y no esté consultado siempre si la carpeta tiene el fichero numeros.txt
+import time # Para hacer que se espere y no esté consultado siempre si la carpeta tiene el fichero numeros.txt
 import sql_connection # Función de conexión al servidor MySQL
-import lectura_fichero # Función para leer fichero csv
-import sql_querys # Función para generar las querys
-import os # Para cargar comandos del sistema y borrar los ficheros txt después de usarlos
+import lectura_fichero # Función para leer fichero csv
+import sql_querys # Función para generar las querys
+import os # Para cargar comandos del sistema y borrar los ficheros txt después de usarlos
 import logging_class # Al final hemos creado una clase para gestionar los errores del log
-import ficheros_necesarios # Aquí se crean los ficheros necesarios 
+import ficheros_necesarios # Aquí se crean los ficheros necesarios 
 
 def main():
     temp = 0
-    ficheros_necesarios.newFiles() # Creamos los ficheros si no existen.
+    ficheros_necesarios.newFiles() # Creamos los ficheros si no existen.
     ficheros_necesarios.lastRegistryFile(temp) # Generamos fichero con los últimos 5 registros
     registro = logging_class.checkError()
 
@@ -36,7 +36,7 @@ def main():
                 os.system("mv /opt/files/numeros.txt /opt/files/numeros_error.txt")
                 pass # No salimos porque no debería seguir ejecutando porque no existe el fichero numeros.txt
             else:
-                # Montamos las querys con la información e iniciamos un insert con los datos.
+                # Montamos las querys con la información e iniciamos un insert con los datos.
                 sql_numeros = sql_querys.numerosSQL(numeros)
                 sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
                 miConexion = sql_connection.conexionDB()

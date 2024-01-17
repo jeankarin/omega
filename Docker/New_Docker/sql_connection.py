@@ -7,7 +7,7 @@ import logging_class
 class conexionDB:
 
     # Hacemos ping al servidor
-    num = os.system("ping -c2 -q -i5 172.17.0.5")
+    num = os.system("ping -c2 -q -i5 192.168.1.41")
     logError1 = logging_class.checkError()
 
     # Leemos los datos del fichero de conexión para preparar la conexión

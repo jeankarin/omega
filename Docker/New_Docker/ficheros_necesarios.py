@@ -6,6 +6,7 @@ import os
 import sql_connection
 
 # Poblamos el fichero con la información necesaria
+# con la variable temp a valor 0, generamos el fichero, si le paso 0, fuerzo de nuevo la creación del fichero
 def lastRegistryFile(temp):
     tempID = 0
     if (os.stat("/opt/files/lastregistry.txt").st_size == 0) or (temp > 0):
@@ -26,6 +27,12 @@ def newFiles():
         os.system("touch /opt/files/message.log")
     if (os.path.isfile("/opt/files/lastregistry.txt") == False):
         os.system("touch /opt/files/lastregistry.txt")
-    
     if (os.path.exists("/opt/files/lastregistry.txt")) == True:
         lastRegistryFile(temp)
+
+def ultimo_ID():
+    temp = 0
+    lastRegistryFile(temp)
+
+    with open("prueba.txt") as archivo:
+        print(archivo.readline())

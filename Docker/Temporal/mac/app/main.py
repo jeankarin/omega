@@ -36,7 +36,7 @@ def main():
             os.system("mv ~/DevLocal/git/omega/Docker/Temporal/mac/files/numeros.txt ~/DevLocal/git/omega/Docker/Temporal/mac/files/numeros_error.txt")
             pass # No salimos porque no debería seguir ejecutando porque no existe el fichero numeros.txt
         else:
-            # Montamos las querys con la información e iniciamos un insert con los datos.
+            #Montamos las querys con la información e iniciamos un insert con los datos.
             sql_numeros = sql_querys.numerosSQL(numeros)
             sql_millones = sql_querys.millonesSQL(numeros, ultimoID)
             miConexion = sql_connection.conexionDB()

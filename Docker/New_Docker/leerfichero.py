@@ -7,7 +7,7 @@ def LecturaFichero(Lectura):
     numeros = []
 
     LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-    logging.basicConfig(filename = "omega/Docker/New_Docker/message.log",
+    logging.basicConfig(filename = "/opt/files/message.log",
         level = logging.DEBUG,
         format = LOG_FORMAT)
     logger = logging.getLogger()
@@ -18,6 +18,9 @@ def LecturaFichero(Lectura):
             for row in csvreader:
                 numeros.append(row)
     except FileNotFoundError:
-        logger.error("Lectura fichero: No existe el fichero numeros.txt ó error leyendo el fichero")
+        logger.error("Lectura fichero: No existe o error leyendo el fichero numeros.txt ó lastregistry.txt")
+        csvfile.close()
+        return 1
 
+    csvfile.close()
     return numeros

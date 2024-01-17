@@ -26,7 +26,7 @@ def lecturaFichero(lectura):
 
     return numeros
 
-# Comprobamos que el fichero tenga la información correcta
+# Comprobamos que el fichero tenga la información correcta
 def checkErrorFile(numeros):
     error = 0
 
