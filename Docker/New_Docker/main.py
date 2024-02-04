@@ -44,6 +44,19 @@ def main():
 						ficheros_necesarios.lastRegistryFile(temp)
 					else:
 						registro.errorUpdate()
+
+				del fichero
+				del ultimoID_temp
+				del ultimoID
+				del datos
+				del sql_numeros
+				del sql_millones
+				del miConexion
+				del miConexion2
+				del result1
+				del result2
+				del temp
+				gc.collect()
 		else:
 			time.sleep(5)
 
@@ -56,4 +69,5 @@ if __name__ == '__main__':
 	import os
 	import time
 	import sql_connection
+	import gc
 	main()
