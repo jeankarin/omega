@@ -49,6 +49,7 @@ class conexionDB:
                 self.__class__.conexion.commit()
             except:
                 self.__class__.conexion.rollback()
+                self.__class__.conexion.close
                 return 1
         
         self.__class__.conexion.close
