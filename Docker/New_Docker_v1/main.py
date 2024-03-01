@@ -9,7 +9,7 @@ import ficheros_necesarios
 import sql_connection
 
 def main():
-    registro = logging_class.checkError()
+    registro = logging_class.CheckError()
 
     # Creamos los ficheros necesarios.
     ficheros_necesarios.newFiles()
@@ -32,9 +32,11 @@ def main():
 
             sql_numeros = create_sql.sql_format1(fichero)
             sql_millones = create_sql.sql_format2(fichero, ultimoID)
-            with sql_connection.conexionDB() as miConexion, sql_connection.conexionDB() as miConexion2:
+            temp = 0
+            with sql_connection.ConexionDB() as miConexion, sql_connection.ConexionDB() as miConexion2:
                 result1 = miConexion.insertNumeros(sql_numeros)
                 result2 = miConexion2.insertMillones(sql_millones)
+
 
             if result1 == 0 and result2 == 0:
                 registro.successUpdate()

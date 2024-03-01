@@ -31,3 +31,4 @@ def datos(numeros):
     for row in numeros:
         if len(row[11]) != 10:
             logger.error
+    """

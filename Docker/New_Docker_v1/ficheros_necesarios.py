@@ -1,9 +1,9 @@
 import os
 import sql_connection
 
-def lastRegistryFile():
-    if os.path.getsize("/opt/files/lastregistry.txt") == 0:
-        miConexion = sql_connection.conexionDB()
+def lastRegistryFile(temp):
+    if (os.path.getsize("/opt/files/lastregistry.txt") == 0) or (temp > 0):
+        miConexion = sql_connection.ConexionDB()
         tempID = miConexion.lastregistry()
 
         with open("/opt/files/lastregistry.txt", "w") as file:
@@ -16,11 +16,10 @@ def newFiles():
     
     if not os.path.isfile("/opt/files/lastregistry.txt"):
         os.system("touch /opt/files/lastregistry.txt")
-    
-    lastRegistryFile()
+    lastRegistryFile(temp = 1)
 
 def ultimo_ID():
-    lastRegistryFile()
+    lastRegistryFile(temp = 1)
 
     with open("prueba.txt") as archivo:
         print(archivo.readline())
