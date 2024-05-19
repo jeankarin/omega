@@ -10,12 +10,12 @@ def sql_format2(fichero,ultimoID):
     sql_millones = []
 
     for i in range(len(fichero)):
+        ultimoID = int(ultimoID) + 1
         sql_millones.append("""INSERT INTO MILLONES VALUES (%s,%s,%s)""" % ('NULL',fichero[i][11],ultimoID))
     
     return sql_millones
 
 def ultimo_ID():
-
     sql_ultimoid = ("""SELECT * FROM NUMEROS ORDER BY ID DESC LIMIT 5""")
 
     return sql_ultimoid
