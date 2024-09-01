@@ -1,0 +1,2 @@
+Vamos a crear el script como un servicio de systemctl para añadir los numeros a la base de datos,
+MariaDB o PostgreSQL.
